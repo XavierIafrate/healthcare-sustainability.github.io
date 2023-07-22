@@ -41,15 +41,16 @@ valueDisplays.forEach((valueDisplay) => {
     let interval = 10
   let startValue = 0;
   let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+  let suffix = valueDisplay.getAttribute("data-suffix");
   let duration = Math.floor(interval / endValue);
-  let increment = endValue / 333;
+  let increment = endValue / 345.6;
 
   let counter = setInterval(function () {
     startValue += increment;
-    valueDisplay.textContent = startValue.toLocaleString('en-US', {maximumFractionDigits:0});;
+    valueDisplay.textContent = startValue.toLocaleString('en-US', {maximumFractionDigits:0}) + suffix;
     if (startValue >= endValue) {
       clearInterval(counter);
-    valueDisplay.textContent = endValue.toLocaleString('en-US', {maximumFractionDigits:0});;
+    valueDisplay.textContent = endValue.toLocaleString('en-US', {maximumFractionDigits:0}) + suffix;
 
     }
   }, duration);
