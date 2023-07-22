@@ -1,0 +1,10 @@
+.headshot {
+    max-height: 20%;
+    width: auto;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.full-screen {
+    height: 100%;
+}
