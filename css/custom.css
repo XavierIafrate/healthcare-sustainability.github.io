@@ -5,8 +5,9 @@
     border-radius: 10px;
 }
 
-.full-screen {
-    height: 100%;
+.bio {
+    background-color: black;
+    color: #ddd;
 }
 
 .section-header {
@@ -63,3 +64,24 @@ to {
     position: fixed;
     top: 0;
   }
+
+
+footer {
+    height: 5vh;
+    background-color: black;
+    color: #444;   
+    margin: 0;
+    padding: 1rem;
+}
+
+footer p {
+    text-align: center;
+    font-size: small;
+    font-style: italic;
+    margin: 0.5rem;
+}
+
+footer a {
+    color: inherit }
+footer a:hover {
+    color: #0FA0CE; }
