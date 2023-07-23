@@ -116,7 +116,7 @@ sup a {
     text-decoration: none;
 }
 
-@media only screen and (max-width: 1026px) { 
+@media only screen and (max-width: 1100px) { 
     #slideOut { 
       display: none; 
     } 
@@ -124,7 +124,6 @@ sup a {
 
 #slideOut {
     position: fixed;
-    max-width: 20%;
     height: auto;
     top: 30px;
     left: -300px;
