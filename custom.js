@@ -9,6 +9,28 @@ let processScroll = () => {
 
     revealHighlights();
     revealNumbers()
+    setMiniMenu();
+}
+
+async function setMiniMenu() {
+    var contents = document.getElementById("mainMenu");
+    var author = document.getElementById("about");
+
+    var miniMenu = document.getElementById('slideOut');
+        if(!miniMenu){
+            alert('menu is empty')
+        }
+
+    if(contents.getBoundingClientRect().bottom < 0 && author.getBoundingClientRect().top> window.innerHeight) {
+        miniMenu.classList.add("showSlideOut")
+        miniMenu.classList.remove("hideSlideOut")
+    }
+    else {
+        
+        miniMenu.classList.remove("showSlideOut")
+        miniMenu.classList.add("hideSlideOut")
+    }
+
 }
 
 async function revealHighlights() {

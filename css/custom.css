@@ -111,3 +111,52 @@ footer a:hover {
     color: #444;
     transition: 200ms;
 }
+
+sup a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 1026px) { 
+    #slideOut { 
+      display: none; 
+    } 
+  }
+
+#slideOut {
+    position: fixed;
+    max-width: 20%;
+    height: auto;
+    top: 30px;
+    left: -300px;
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slideOutTab {
+    cursor: pointer;
+    position: absolute;
+    left: 320px;
+    height: 100%;
+    width: 20px;
+    background: #8fd3f4;
+    border-radius: 0px 10px 10px 0px
+  }
+
+  .showSlideOut {
+    left: 20px !important;
+  }
+
+  .hideSlideOut {
+    left: -320px !important;
+  }
+.mini-menu h5 {
+    font-size: 1.2rem;
+    margin: 0.5rem;
+}
+
+.mini-menu h6 {
+    font-size: 1rem;
+    margin: 0.2rem;
+
+}
