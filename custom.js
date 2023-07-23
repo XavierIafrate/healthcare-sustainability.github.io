@@ -1,68 +1,92 @@
 let processScroll = () => {
-    let docElem = document.documentElement, 
-      docBody = document.body,
-      scrollTop = docElem['scrollTop'] || docBody['scrollTop'],
+    let docElem = document.documentElement,
+        docBody = document.body,
+        scrollTop = docElem['scrollTop'] || docBody['scrollTop'],
         scrollBottom = (docElem['scrollHeight'] || docBody['scrollHeight']) - window.innerHeight,
-      scrollPercent = scrollTop / scrollBottom * 100 + '%';
-    
-      document.getElementById("progress-bar").style.setProperty("--scrollAmount", scrollPercent); 
+        scrollPercent = scrollTop / scrollBottom * 100 + '%';
 
-      revealHighlights();
-      revealNumbers()
-  }
+    document.getElementById("progress-bar").style.setProperty("--scrollAmount", scrollPercent);
 
-  async function revealHighlights() {
+    revealHighlights();
+    revealNumbers()
+}
+
+async function revealHighlights() {
     var highlights = document.querySelectorAll('mark');
     var height = window.innerHeight;
 
-    for(let i = 0; i < highlights.length; i++) {
-        var pos =  highlights[i].getBoundingClientRect().bottom;
+    for (let i = 0; i < highlights.length; i++) {
+        var pos = highlights[i].getBoundingClientRect().bottom;
 
-        if(pos < height - 150 && ! highlights[i].classList.contains('animation')) {
+        if (pos < height - 150 && !highlights[i].classList.contains('animation')) {
             await sleep(500)
             highlights[i].classList.add('animation')
         }
     }
 
-  }
+}
 
-  async function revealNumbers() {
+async function revealNumbers() {
     var height = window.innerHeight;
     let valueDisplays = document.querySelectorAll(".num");
-valueDisplays.forEach((valueDisplay) => {
-    var pos =  valueDisplay.getBoundingClientRect().bottom;
+    valueDisplays.forEach((valueDisplay) => {
+        var pos = valueDisplay.getBoundingClientRect().bottom;
 
-    if(pos > height - 150) return;
+        if (pos > height - 150) return;
 
-    if(valueDisplay.classList.contains('registered')) return;
-    valueDisplay.classList.add('registered')
+        if (valueDisplay.classList.contains('registered')) return;
+        valueDisplay.classList.add('registered')
 
 
-    let interval = 10
-  let startValue = 0;
-  let endValue = parseInt(valueDisplay.getAttribute("data-val"));
-  let suffix = valueDisplay.getAttribute("data-suffix");
-  let duration = Math.floor(interval / endValue);
-  let increment = endValue / 345.6;
+        let interval = 10
+        let startValue = 0;
+        let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+        let suffix = valueDisplay.getAttribute("data-suffix");
+        let duration = Math.floor(interval / endValue);
+        let increment = endValue / 345.6;
 
-  let counter = setInterval(function () {
-    startValue += increment;
-    valueDisplay.textContent = startValue.toLocaleString('en-US', {maximumFractionDigits:0}) + suffix;
-    if (startValue >= endValue) {
-      clearInterval(counter);
-    valueDisplay.textContent = endValue.toLocaleString('en-US', {maximumFractionDigits:0}) + suffix;
+        let counter = setInterval(function () {
+            startValue += increment;
+            valueDisplay.textContent = startValue.toLocaleString('en-US', { maximumFractionDigits: 0 }) + suffix;
+            if (startValue >= endValue) {
+                clearInterval(counter);
+                valueDisplay.textContent = endValue.toLocaleString('en-US', { maximumFractionDigits: 0 }) + suffix;
 
+            }
+        }, duration);
+    });
+}
+
+const navigateDocument = e => {
+    var tag = e.target.getAttribute('tag');
+    if(!tag) return;
+    var destinationElement = document.getElementById(tag);
+
+    if(!destinationElement) {
+        alert('document location not found');
+        return;
     }
-  }, duration);
-});
+    
+    var headerOffset = 45;
 
-  }
+    if(tag === "about") {
+        headerOffset = 0;
+    }
+    var elementPosition = destinationElement.getBoundingClientRect().top;
+    var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  
+    window.scrollTo({
+         top: offsetPosition,
+         behavior: "smooth"
+    });
 
-  function sleep(ms) {
+}
+
+function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-  
 
+document.addEventListener('scroll', processScroll);
 
-
-  document.addEventListener('scroll', processScroll);
+var menuButtons = document.querySelectorAll('.contents-item');
+menuButtons.forEach(x => document.addEventListener('click', navigateDocument))

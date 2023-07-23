@@ -31,7 +31,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<link rel="icon" type="image/png" href="images/favicon.png">
 
-	<script src="custom.js"></script>
+	<script defer src="custom.js"></script>
 
 	<meta property="og:image" content="/resources/gloves.jpg">
 	<meta property="og:title" content="The environmental sustainability of science and healthcare research in the UK">
@@ -43,8 +43,6 @@
 </head>
 
 <body>
-	<!-- Primary Page Layout
-    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<div class="container ">
 		<div class="row" style="height: 100vh;">
 			<div class="one-half column" style="margin-top: 25%">
@@ -53,7 +51,34 @@
 				<p>Dr Madeleine Luck</p>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" style="height: 100vh;">
+			<div class="two-thirds column" style="margin-top: 10%">
+				<h4>Table of contents</h4>
+				<hr />
+				<div class="contents">
+					<h5 class="contents-item"><a tag="executiveSummary">§ Executive Summary</a></h5>
+				
+					<h5 class="contents-item"><a tag="whatsTheProblem">§ What's the problem?</a></h5>
+	
+					<h5 class="contents-item"><a tag="facilitiesAndHowPeopleUseThem">§ Facilities and How People Use Them</a></h5>
+					<h6 class="contents-item"><a tag="facilitiesAndHowPeopleUseThem">&emsp;i) Facilities</a></h6>
+					<h6 class="contents-item"><a tag="behaviour">&emsp;ii) Behaviour</a></h6>
+					<h6 class="contents-item"><a tag="progress">&emsp;iii) Progress in the UK</a></h6>
+	
+					<h5 class="contents-item"><a tag="materialsAndSupplyChain">§ Materials and Supply Chain</a></h5>
+					<h6 class="contents-item"><a tag="materialsAndSupplyChain">&emsp;i) Materials</a></h6>
+					<h6 class="contents-item"><a tag="supplyChain">&emsp;ii) Supply Chain</a></h6>
+					
+					<h5 class="contents-item"><a tag="widerContext">§ Wider Context of Research in the UK and Beyond</a></h5>
+
+					<h5 class="contents-item"><a tag="conclusions">§ Conclusions</a></h5>
+
+					<h5 class="contents-item"><a tag="about">About the Author</a></h5>
+				</div>
+				
+			</div>
+		</div>
+		<div id="executiveSummary" class="row">
 			<div>
 				<h4>Executive Summary</h4>
 				<p>This report aims to introduce and contextualise the issue of laboratory sustainability in the UK. By
@@ -81,13 +106,13 @@
 		</div>
 		<div style="margin:20vh 0">
 		<img src="/resources/clinicalwaste.jpg" style="width: 100%; height: auto; margin: 20% 0 2rem 0;"/>
-		<h2 class="num" data-val="100000000" data-suffix=" tCO2" style="text-align: right;">0</h2>
+		<h2 class="num" data-val="100000000" data-suffix=" tCO2" style="text-align: right;">0 tC02</h2>
 		<h5 style="font-style: italic;text-align: right;">"healthcare research is responsible for 100 megatonnes of carbon dioxide annually"</h5>
 	</div>
-		<div class="row">
+		<div class="row" id="whatsTheProblem">
 			<h3 class="section-header">What's the problem?</h3>
 			<p>Twenty years ago, few scientists – if any – cared about the sustainability of their laboratory
-				practices.1 The most
+				practices.<sup><a href="https://www.nature.com/articles/420461c" target="_blank" rel="noopener noreferrer">[1]</a></sup> The most
 				recent data available suggest that, in 2018, almost £4.8 billion was spent on health and medical
 				research.2 This
 				figure grows year on year. Most scientists would like to think that they are using grant money
@@ -167,11 +192,11 @@
 				organisations. Finally, I conclude with some recommendations for stakeholders in science and healthcare
 				to allow
 				our scientific community to reach a more sustainable future.</p>
+				<div style="height: 25vh;">
+					<hr />
+				</div>
 		</div>
-		<div class="row">
-			<div style="height: 25vh;">
-				<hr />
-			</div>
+		<div class="row" id="facilitiesAndHowPeopleUseThem">
 			<h3 class="section-header">Facilities and how people use them.</h3>
 			<h4>Facilities</h4>
 			<p>Research facilities and the energy that powers them are commonly referred to as scope 1 and scope 2 emissions,
@@ -236,6 +261,21 @@
 					  </tr>
 					</tbody>
 				  </table>
+			<h4 id="behaviour">Behaviour</h4>
+			<h4 id="progress">Progress in the UK</h4>
+
+		</div>
+		<div class="row" id="materialsAndSupplyChain">
+			<h3 class="section-header">Materials and supply chain</h3>
+			<h4>Materials</h4>
+			<h4 id="supplyChain">Supply Chain</h4>
+			<h4 id="widerContext">Progress in the UK</h4>
+
+		</div>
+
+		<div class="row" id="materialsAndSupplyChain">
+			<h3 class="section-header">Conclusions</h3>
+
 		</div>
 
 	</div>
@@ -246,7 +286,7 @@
 	<div style="height: 25vh;"></div>
 
 
-	<div class="row bio" style="height: 95vh;">
+	<div class="row bio" style="height: 95vh;" id="about">
 		<img class="one-third column" src="/resources/mads.webp"
 		alt="photo of a woman"
 			style="height: 40%;;width: auto;margin: 10% 5rem auto 20%;">
@@ -271,14 +311,9 @@
 	<footer>
 		<div>
 			<p>Copyright © 2023</p>
-			<p>Website by <a href="https://github.com/XavierIafrate">Xavier Iafrate</a></p>
+			<p style="font-family:monospace;font-style: normal;">Website by <a href="https://github.com/XavierIafrate">Xavier Iafrate</a></p>
 		</div>
 	</footer>
 	<div id="progress-bar"></div>
-
-
-	<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
-
 </html>

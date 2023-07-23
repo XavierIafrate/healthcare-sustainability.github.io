@@ -95,3 +95,19 @@ footer a {
 footer a:hover {
     color: #0FA0CE;
 }
+
+
+.contents:hover a:not(:hover) {
+    color: lightgray;
+    transition: 200ms;
+}
+
+.contents a {
+    color: inherit;
+    cursor: pointer;
+}
+
+.contents a:hover {
+    color: #444;
+    transition: 200ms;
+}
