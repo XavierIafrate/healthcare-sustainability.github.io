@@ -72,11 +72,14 @@ mark {
     top: 0;
 }
 
+.quote {
+    font-style: italic;
+}
+
 
 footer {
     height: 5vh;
-    background-color: black;
-    color: #444;
+    color: #aaa;
     margin: 0;
     padding: 1rem;
 }
@@ -112,9 +115,21 @@ footer a:hover {
     transition: 200ms;
 }
 
-sup a {
+a {
     text-decoration: none;
 }
+
+.fade-in-after-load {
+    opacity: 0;
+    animation: fadeIn 10s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateX(-20px) }
+    20% { opacity: 1; transform: translateX(0px)  }
+    80% { opacity: 1; transform: translateX(0px)  }
+    100% { opacity: 0; transform: translateX(20px)  }
+  }
 
 @media only screen and (max-width: 1100px) { 
     #slideOut { 
