@@ -122,6 +122,7 @@ a {
 .fade-in-after-load {
     opacity: 0;
     animation: fadeIn 10s ease-in-out;
+    animation-delay: 1s;
 }
 
 @keyframes fadeIn {
